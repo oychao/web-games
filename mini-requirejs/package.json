@@ -1,0 +1,8 @@
+{
+  "name": "mini-requirejs",
+  "version": "1.0.0",
+  "description": "a mini commonjs lib",
+  "main": "index.js",
+  "author": "Ouyang Chao",
+  "license": "MIT"
+}
