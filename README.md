@@ -1,3 +1,3 @@
-# web-games
+# Wheel Reinventions
 
-Demo games built with javascript.
+For JavaScript learning.
