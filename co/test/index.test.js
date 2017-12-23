@@ -46,3 +46,13 @@ describe('co:', () => {
         });
     });
 });
+
+describe('error:', () => {
+    it('should throw an error', function () {
+        assert.throws(function () {
+            co(function gen() {
+                // do sth
+            });
+        }, Error, 'parameter must be a generator function');
+    });
+});
