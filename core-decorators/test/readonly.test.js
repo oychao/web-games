@@ -2,8 +2,9 @@ import assert from 'assert';
 
 import { readonly } from '../index';
 
-describe('readonly', () => {
+describe('@readonly', () => {
     let Foo;
+
     beforeEach(function () {
         Foo = class {
             @readonly

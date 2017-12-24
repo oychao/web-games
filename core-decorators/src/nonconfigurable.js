@@ -1,4 +1,4 @@
 export default function (target, name, descriptor) {
-    descriptor.writable = false;
+    descriptor.configurable = false;
     return descriptor;
 };
