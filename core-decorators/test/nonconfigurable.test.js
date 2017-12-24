@@ -1,13 +1,12 @@
 import assert from 'assert';
 
-import { nonconfigurable, readonly } from '../index';
+import { nonconfigurable } from '../index';
 
 describe('@nonconfigurable', () => {
     let Foo;
 
     beforeEach(function () {
         Foo = class {
-            @readonly
             @nonconfigurable
             sayHello() {
                 return 'hello'
