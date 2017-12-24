@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-decorators-legacy"
+  ],
+  "env": {
+    "es": {},
+    "development": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
+}
