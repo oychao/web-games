@@ -7,7 +7,7 @@ export default function (target, name, {
         configurable,
         enumerable,
         get() {
-            if (this === target) {
+            if (this === target || typeof fn !== 'function') {
                 return fn;
             }
             return fn.bind(this);

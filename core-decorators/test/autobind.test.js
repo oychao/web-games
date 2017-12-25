@@ -28,4 +28,19 @@ describe('@autobind', () => {
     it('should not bind this when "this" is prototype', function () {
         assert(Foo.prototype.sayHello.name.split(' ')[0] !== 'bound');
     });
+
+    it('should be able to set new function to value of the key', function () {
+        const f = new Foo();
+        f.sayHello = function () {
+            return this;
+        };
+        const sayHello = f.sayHello;
+        assert(sayHello() === f);
+    });
+
+    it('should not bind this if new value is not a function', function () {
+        const f = new Foo();
+        f.sayHello = 1;
+        assert(f.sayHello === 1);
+    });
 });
