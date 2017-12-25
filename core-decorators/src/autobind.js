@@ -7,6 +7,9 @@ export default function (target, name, {
         configurable,
         enumerable,
         get() {
+            if (this === target) {
+                return fn;
+            }
             return fn.bind(this);
         },
         set(newFn) {

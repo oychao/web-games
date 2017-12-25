@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha --require intelli-espower-loader --require babel-register 'test/**/*.test.js'",
+    "test": "mocha --require babel-register 'test/**/*.test.js'",
     "build": "./node_modules/.bin/babel test -d lib"
   },
   "devDependencies": {
@@ -13,7 +13,6 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "intelli-espower-loader": "^1.0.1",
     "mocha": "^4.0.1",
     "power-assert": "^1.4.4"
   }
