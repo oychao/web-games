@@ -1,7 +1,7 @@
 const bindMethod = function (target, key, {
     value: fn,
     configurable,
-    enumerable
+    enumerable,
 }) {
     return {
         configurable,
