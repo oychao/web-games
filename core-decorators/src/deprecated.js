@@ -11,7 +11,7 @@ export default function () {
             enumerable,
             value() {
                 console.warn(msg || defaultMsg);
-                fn();
+                return fn(...arguments);
             }
         }
     };

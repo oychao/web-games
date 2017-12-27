@@ -10,6 +10,11 @@ describe('@deprecated', () => {
             return 'hello';
         }
 
+        @deprecated
+        sayHi(friend) {
+            return `Hi! ${friend}`;
+        }
+
         @deprecated('this method is deprecated')
         greeting() {
             return 'greetings';
@@ -32,5 +37,10 @@ describe('@deprecated', () => {
         f.greeting();
         expect(console.warn.calledOnce).to.be.true;
         expect(console.warn.calledWith('this method is deprecated')).to.be.true;
+    });
+
+    it('should run correctly when passing arguments to deprecatd function', function () {
+        const f = new Foo();
+        expect(f.sayHi('Ouyang')).to.equal('Hi! Ouyang');
     });
 });
