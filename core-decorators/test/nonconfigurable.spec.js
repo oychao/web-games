@@ -3,6 +3,8 @@ import { expect } from 'chai';
 import { nonconfigurable } from '../index';
 
 describe('@nonconfigurable', () => {
+    let f;
+
     class Foo {
         @nonconfigurable
         sayHello() {
@@ -10,9 +12,12 @@ describe('@nonconfigurable', () => {
         }
     };
 
+    beforeEach(function () {
+        f = new Foo();
+    });
+
     it('should not be configurable', function () {
         expect(function () {
-            const f = new Foo();
             Object.defineProperty(Foo.prototype, 'sayHello', {
                 value: 'simply cannot'
             });

@@ -3,6 +3,8 @@ import { expect } from 'chai';
 import { enumerable } from '../index';
 
 describe('@enumerable', () => {
+    let f;
+
     class Foo {
         sayHello() {
             return 'hello'
@@ -13,8 +15,11 @@ describe('@enumerable', () => {
         }
     }
 
+    beforeEach(function () {
+        f = new Foo();
+    });
+
     it('method greeting should be enumerable', function () {
-        const f = new Foo();
         let greeting;
         for (let key in f) {
             greeting = key === 'greeting' ? key : greeting;
