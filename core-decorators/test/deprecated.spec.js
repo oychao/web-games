@@ -39,7 +39,7 @@ describe('@deprecated', () => {
         expect(console.warn.calledWith('this method is deprecated')).to.be.true;
     });
 
-    it('should run correctly when passing arguments to deprecatd function', function () {
+    it('should return right result when passing arguments to the function', function () {
         const f = new Foo();
         expect(f.sayHi('Ouyang')).to.equal('Hi! Ouyang');
     });

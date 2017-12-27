@@ -23,7 +23,7 @@ export default function () {
                 args.forEach(arg => {
                     arg(...arguments);
                 });
-                fn(...arguments);
+                return fn(...arguments);
             }
         };
     };
