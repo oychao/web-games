@@ -3,7 +3,7 @@ export default function () {
     const defaultDeprecated = function (target, name, {
         value: fn,
         configurable,
-        enumerable
+        enumerable,
     }) {
         const defaultMsg = `DEPRECATION: ${target.constructor.name}#${name} is deprecated and will not be supported in the future.`;
         return {
