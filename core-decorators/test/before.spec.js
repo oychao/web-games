@@ -10,6 +10,10 @@ describe('@before', () => {
         console.info(`Look! it's ${friend}`);
     };
 
+    const think = function (friend) {
+        console.info(`Is that ${friend}?`);
+    };
+
     class Foo {
         @before(recognize)
         sayHello(friend) {
@@ -19,6 +23,11 @@ describe('@before', () => {
         @before(recognize)
         sayHi(friend) {
             return `Hi! ${friend}`;
+        }
+
+        @before(think, recognize)
+        sayHiAgain(friend) {
+            console.info(`Hi! ${friend}`);
         }
     }
 
@@ -38,5 +47,13 @@ describe('@before', () => {
         expect(f.sayHi('Ouyang')).to.equal('Hi! Ouyang');
         expect(console.info.calledOnce).to.be.true;
         expect(console.info.calledWith('Look! it\'s Ouyang')).to.be.true;
+    });
+
+    it('should not throw any error if multiple before function is given', function () {
+        f.sayHiAgain('Ouyang');
+        expect(console.info.calledThrice).to.be.true;
+        expect(console.info.calledWith('Is that Ouyang?')).to.be.true;
+        expect(console.info.calledWith('Look! it\'s Ouyang')).to.be.true;
+        expect(console.info.calledWith('Hi! Ouyang')).to.be.true;
     });
 });
