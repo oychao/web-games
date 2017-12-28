@@ -46,14 +46,14 @@ describe('@before', () => {
         this.sinon.stub(console, 'info');
     });
 
-    it('should invoke the @before method first', function () {
-        f.sayHello('Jim Green')
+    it('decorating method should be invoked without error', function () {
+        f.sayHello('Jim Green');
         expect(console.info.calledTwice).to.be.true;
         expect(console.info.calledWith('Look! it\'s Jim Green')).to.be.true;
         expect(console.info.calledWith('Hi! Jim Green')).to.be.true;
     });
 
-    it('should return right result when passing arguments to the function', function () {
+    it('should return right result when passing arguments to decorating function', function () {
         expect(f.sayHi('Ouyang')).to.equal('Hi! Ouyang');
         expect(console.info.calledOnce).to.be.true;
         expect(console.info.calledWith('Look! it\'s Ouyang')).to.be.true;
