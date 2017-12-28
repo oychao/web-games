@@ -34,6 +34,11 @@ describe('@before', () => {
         sayHelloAgain(friend) {
             console.info(`Hi! ${friend}`);
         }
+
+        @before(recognize)
+        sayGoodBye(friend) {
+            console.warn(`Bye! ${friend}`);
+        }
     }
 
     beforeEach(function () {
@@ -68,5 +73,13 @@ describe('@before', () => {
         expect(console.info.calledWith('Is that Ouyang?')).to.be.true;
         expect(console.info.calledWith('Look! it\'s Ouyang')).to.be.true;
         expect(console.info.calledWith('Hi! Ouyang')).to.be.true;
+    });
+
+    it('decorating function should be called before decorated function', function () {
+        this.sinon.stub(console, 'warn');
+        f.sayGoodBye('Ouyang');
+        expect(console.info.calledOnce).to.be.true;
+        expect(console.warn.calledOnce).to.be.true;
+        expect(console.info.calledBefore(console.warn)).to.be.true;
     });
 });
