@@ -29,6 +29,11 @@ describe('@before', () => {
         sayHiAgain(friend) {
             console.info(`Hi! ${friend}`);
         }
+
+        @before([think, recognize])
+        sayHelloAgain(friend) {
+            console.info(`Hi! ${friend}`);
+        }
     }
 
     beforeEach(function () {
@@ -49,8 +54,16 @@ describe('@before', () => {
         expect(console.info.calledWith('Look! it\'s Ouyang')).to.be.true;
     });
 
-    it('should not throw any error if multiple before function is given', function () {
+    it('should not throw any error if multiple arguments is given', function () {
         f.sayHiAgain('Ouyang');
+        expect(console.info.calledThrice).to.be.true;
+        expect(console.info.calledWith('Is that Ouyang?')).to.be.true;
+        expect(console.info.calledWith('Look! it\'s Ouyang')).to.be.true;
+        expect(console.info.calledWith('Hi! Ouyang')).to.be.true;
+    });
+
+    it('should not throw any error if multiple arguments is given as one array', function () {
+        f.sayHelloAgain('Ouyang');
         expect(console.info.calledThrice).to.be.true;
         expect(console.info.calledWith('Is that Ouyang?')).to.be.true;
         expect(console.info.calledWith('Look! it\'s Ouyang')).to.be.true;
